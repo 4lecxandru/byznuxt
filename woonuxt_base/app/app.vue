@@ -5,10 +5,10 @@ const { isShowingMobileMenu, toggleMobileMenu, addBodyClass, removeBodyClass } =
 const { siteName } = useAppConfig();
 const config = useRuntimeConfig();
 
-const primaryColor = computed(() => config.public.PRIMARY_COLOR || '#7f54b2');
+const primaryColor = computed(() => config.public.PRIMARY_COLOR || '#0459c7');
 const safePrimaryColor = computed(() => {
   const color = String(primaryColor.value).trim();
-  return /^#[0-9a-f]{6}$/i.test(color) || /^#[0-9a-f]{3}$/i.test(color) ? color : '#7f54b2';
+  return /^#[0-9a-f]{6}$/i.test(color) || /^#[0-9a-f]{3}$/i.test(color) ? color : '#0459c7';
 });
 
 const closeCartAndMenu = () => {
