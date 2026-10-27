@@ -61,7 +61,10 @@ export default defineNuxtConfig({
   nitro: {
     routeRules: {
       '/': { swr: 3600 },
+      '/product/**': { swr: 1800 },   // Cache pentru paginile individuale de produs
       '/products/**': { swr: 1800 },
+      '/product-category/**': {swr: 1800},
+      '/categories': {swr: 1800},
     },
     prerender: {
       concurrency: 10,
