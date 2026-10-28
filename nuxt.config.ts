@@ -34,6 +34,7 @@ export default defineNuxtConfig({
 
   // 3. Configurare avansată @nuxt/image
   image: {
+    provider: 'ipx',
     format: ['webp', 'avif'],
     quality: 80,
     screens: {
@@ -43,7 +44,10 @@ export default defineNuxtConfig({
       lg: 1024,
       xl: 1280,
       '2xl': 1536,
-    },
+    }
+    ,domains: [
+      'api.byzbros.com'
+    ],
   },
 
   // 4. Configurare Apollo Client & Automatic Persisted Queries (APQ)
