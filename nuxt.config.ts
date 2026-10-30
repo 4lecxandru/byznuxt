@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/apollo'
   ],
-  
   components: [{ path: './components', pathPrefix: false }],
 
   // Optimizări în <head> (Preconnect către WordPress pe Coolify)
@@ -44,8 +43,8 @@ export default defineNuxtConfig({
       lg: 1024,
       xl: 1280,
       '2xl': 1536,
-    }
-    ,domains: [
+    },
+    domains: [
       'api.byzbros.com'
     ],
   },
@@ -67,8 +66,12 @@ export default defineNuxtConfig({
       '/': { swr: 3600 },
       '/product/**': { swr: 1800 },   // Cache pentru paginile individuale de produs
       '/products/**': { swr: 1800 },
-      '/product-category/**': {swr: 1800},
-      '/categories': {swr: 1800},
+      '/product-category/**': { swr: 1800 },
+      '/categories': { swr: 1800 },
+      
+      // 🟢 ADAUGAT: Cache pe termen lung (1 an) pentru asset-urile statice și imagini (Rezolvă PageSpeed)
+      '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+      '/images/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     },
     prerender: {
       concurrency: 10,

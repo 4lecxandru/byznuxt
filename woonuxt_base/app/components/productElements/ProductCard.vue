@@ -16,8 +16,8 @@ type ProductImage = {
   key: string;
 };
 
-const imgWidth = 280;
-const imgHeight = Math.round(imgWidth * 1.125);
+const imgWidth = 340;
+const imgHeight = Math.round(imgWidth * 1.125); // 383
 const isFirstProduct = computed(() => props.index === 0);
 
 // example: ?filter=pa_color[green,blue],pa_size[large]
@@ -82,7 +82,7 @@ const sliderImages = computed<ProductImage[]>(() => {
         addImage(main);
       }
       matching.forEach(addVariationImage);
-      return images;
+      return images.slice(0, 3);
     }
   }
 
@@ -93,7 +93,8 @@ const sliderImages = computed<ProductImage[]>(() => {
   variations.forEach(addVariationImage);
   gallery.forEach(addGalleryImage);
 
-  return images;
+  // Limităm la maxim 3 imagini per card în grid pentru a proteja performanța DOM-ului
+  return images.slice(0, 3);
 });
 
 const activeVariationImageSrc = computed<string | null>(() => {
@@ -185,10 +186,13 @@ onMounted(() => {
               :title="image.title"
               :loading="slideIndex === 0 && isFirstProduct ? 'eager' : 'lazy'"
               :preload="slideIndex === 0 && isFirstProduct ? { fetchPriority: 'high' } : false"
-              :sizes="`sm:${imgWidth / 2}px md:${imgWidth}px`"
+              quality="80"
+              format="webp"
+              class="w-full h-full block"
+              sizes="xs:100vw sm:50vw md:33vw lg:340px"
               :img-attrs="{
                 class: 'object-cover object-top w-full h-full rounded-lg',
-                fetchpriority: slideIndex === 0 && isFirstProduct ? 'high' : undefined,
+                fetchpriority: slideIndex === 0 && isFirstProduct ? 'high' : 'low',
               }" />
           </NuxtLink>
           <div v-else class="product-card-slide block flex-[0_0_100%] snap-start snap-always aspect-8/9 overflow-hidden rounded-lg" :data-index="slideIndex">
@@ -200,10 +204,13 @@ onMounted(() => {
               :title="image.title"
               :loading="slideIndex === 0 && isFirstProduct ? 'eager' : 'lazy'"
               :preload="slideIndex === 0 && isFirstProduct ? { fetchPriority: 'high' } : false"
-              :sizes="`sm:${imgWidth / 2}px md:${imgWidth}px`"
+              quality="80"
+              format="webp"
+              class="w-full h-full block"
+              sizes="xs:100vw sm:50vw md:33vw lg:340px"
               :img-attrs="{
                 class: 'object-cover object-top w-full h-full rounded-lg',
-                fetchpriority: slideIndex === 0 && isFirstProduct ? 'high' : undefined,
+                fetchpriority: slideIndex === 0 && isFirstProduct ? 'high' : 'low',
               }" />
           </div>
         </template>

@@ -167,4 +167,68 @@
   input[type='radio']:disabled {
     @apply cursor-not-allowed border-gray-200 bg-gray-100 opacity-70;
   }
+
+/*  Reel sales letter */
+.reel-floating-badge {
+  position: fixed;
+  bottom: 96px; /* Ridicat mai sus pentru a lăsa liberă bara de Add to Cart */
+  right: 28px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  background: linear-gradient(135deg, #181818 0%, #0a0a0a 100%);
+  border: 2.5px solid #D4AF37;
+  border-radius: 50%;
+  color: #D4AF37;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4), 0 6px 16px rgba(0, 0, 0, 0.6);
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+  text-decoration: none;
+}
+
+.reel-floating-badge:hover {
+  transform: scale(1.12) translateY(-3px);
+  box-shadow: 0 14px 35px rgba(212, 175, 55, 0.55), 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+.reel-floating-badge:active {
+  transform: scale(0.95);
+}
+
+.reel-icon-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Inelul animat de pulse */
+.reel-pulse-ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid #D4AF37;
+  opacity: 0.8;
+  animation: reelPulse 2s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes reelPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.85;
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+  
 }
