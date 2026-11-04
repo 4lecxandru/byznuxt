@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/image',
     '@nuxtjs/apollo',
-    'nuxt/security'
+    'nuxt-security'
   ],
 
   // 🟢 CONFIGURARE SECURITATE TESTATĂ PENTRU E-COMMERCE
