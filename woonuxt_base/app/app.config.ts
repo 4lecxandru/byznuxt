@@ -1,30 +1,29 @@
 /**
- * App configuration.
- * This file is used to configure the app settings.
- * Below are the default values.
+ * App configuration for Reel Sales Letter (ByzBros).
+ * This file is used to configure the app settings, branding, and store behavior.
  */
 export default defineAppConfig({
-  siteName: 'WooNuxt',
-  shortDescription: 'This is an example of a WooNuxt store. It provides a modern, fast, and SEO friendly ecommerce store built with Nuxt and WooCommerce.',
-  description: `WooNuxt is unmatched when it comes to performance and scalability. Reap the benefits of having a online store that out performs all of your competitors. You can edit components to display your own information just like the one you're reading now.`,
-  baseUrl: 'https://demo.woonuxt.com',
-  siteImage: 'https://user-images.githubusercontent.com/5116925/218879668-f4c1f9fd-bef4-44b0-bc7f-e87d994aa3a1.png',
+  siteName: 'Reel Sales Letter',
+  shortDescription: 'Transformă vizitatorii în clienți cu ajutorul funnel-urilor interactive cu videoclipuri verticale, construite pentru conversii maxime.',
+  description: `Reel Sales Letter (RSL) combină puterea video-urilor verticale engaging cu un sistem avansat de vânzări directe, livrat pe o arhitectură web ultra-rapidă. Crește rata de conversie prin experiențe video interactive direct pe byzbros.com.`,
+  baseUrl: 'https://byzbros.com',
+  siteImage: 'https://byzbros.com/images/rsl-og-image.png', // Înlocuiește cu link-ul real către imaginea de prezentare (OG image)
   storeSettings: {
     autoOpenCart: false,
-    // cartMode: 'optimistic' updates UI immediately; 'safe' waits for the server response.
+    // 'optimistic' actualizează UI-ul imediat; 'safe' așteaptă răspunsul serverului.
     cartMode: 'optimistic',
     showReviews: true,
     showFilters: true,
     showOrderByDropdown: true,
-    showSKU: true,
+    showSKU: false,
     showRelatedProducts: true,
     showProductCategoriesOnSingleProduct: true,
     showBreadcrumbOnSingleProduct: true,
     showMoveToWishlist: true,
-    hideBillingAddressForVirtualProducts: false,
+    hideBillingAddressForVirtualProducts: true, // Recomandat pentru produse digitale / servicii RSL
     initStoreOnUserActionToReduceServerLoad: true,
-    productGalleryThumbnailsPosition: 'bottom', // 'bottom' or 'left'
-    saleBadge: 'percent', // 'percent', 'onSale' or 'hidden'
-    socialLoginsDisplay: 'buttons', // 'buttons' or 'icons'
+    productGalleryThumbnailsPosition: 'bottom', // 'bottom' sau 'left'
+    saleBadge: 'percent', // 'percent', 'onSale' sau 'hidden'
+    socialLoginsDisplay: 'buttons', // 'buttons' sau 'icons'
   },
 });

@@ -20,6 +20,7 @@ export default defineNuxtConfig({
       headers: true,
     },
 
+      allowedHosts: ['127.0.0.1', 'localhost'], // Must be explicit stringsq
     headers: {
       xContentTypeOptions: 'nosniff',
       
@@ -33,7 +34,6 @@ export default defineNuxtConfig({
         microphone: ['none'],
         geolocation: ['none'],
       },
-
       contentSecurityPolicy: {
         // Doar scripturi sigure cu nonce dinamic și strict-dynamic (Fără 'https:' larg deschis!)
         'script-src': [

@@ -8,11 +8,11 @@ const faviconUrl = '/logo.svg';
 </script>
 
 <template>
-  <NuxtLink to="/" class="inline-flex items-center gap-2">
+  <NuxtLink to="/" class="inline-flex items-center gap-1">
     <NuxtImg v-if="logoUrl" :src="logoUrl" alt="Logo" class="object-contain h-10" />
-    <div v-else class="flex items-center gap-2 text-lg font-bold">
+    <div v-else class="flex items-center gap-1 text-lg font-bold">
       <NuxtImg  :src="faviconUrl" alt="Logo" width="32" height="32" />
-      <span>{{ siteName }}</span>
+      <span style="width: 300px; margin-right: 10px;">{{ siteName }}</span>
     </div>
   </NuxtLink>
 </template>
